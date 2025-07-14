@@ -1,12 +1,10 @@
 // src/pages/Projects.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import ProjectCard from "../components/ProjectCard";
 import projects from "../data/projects";
 import { FiGithub, FiExternalLink, FiImage } from "react-icons/fi";
 import Modal from "react-modal";
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root');
 
 const projectVariants = {
@@ -15,7 +13,7 @@ const projectVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.2,
+      delay: i * 0.1, // Reduced delay from 0.2 to 0.1
       duration: 0.6,
       ease: "easeOut",
     },
@@ -52,12 +50,12 @@ export default function Projects() {
             custom={i}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.6 }}
+            viewport={{ once: true, amount: 0.1 }} // Reduced amount from 0.6 to 0.1 for earlier trigger
             variants={projectVariants}
             onClick={() => openModal(project)}
           >
             {project.image && (
-              <div className="mb-4 rounded-lg overflow-hidden">
+              <div className="mb-4 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
@@ -66,7 +64,6 @@ export default function Projects() {
               </div>
             )}
             <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-            <p className="text-gray-300 mb-4">{project.description}</p>
             {project.tech && (
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((stack, idx) => (
@@ -111,16 +108,16 @@ export default function Projects() {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Project Details"
-        className="modal bg-gray-800 rounded-lg p-6 max-w-4xl mx-auto my-12 outline-none"
+        className="modal bg-gray-800 rounded-lg p-6 max-w-4xl mx-auto my-12 outline-none max-h-[90vh] overflow-y-auto" // Added max-h and overflow-y-auto
         overlayClassName="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50"
       >
         {selectedProject && (
           <div className="text-white">
-            <div className="flex justify-between items-start mb-6">
+            <div className="flex justify-between items-start mb-6 sticky top-0 bg-gray-800 py-4 z-10"> {/* Made header sticky */}
               <h2 className="text-2xl font-bold">{selectedProject.title}</h2>
               <button 
                 onClick={closeModal}
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-white text-2xl"
               >
                 &times;
               </button>
@@ -162,7 +159,7 @@ export default function Projects() {
               </div>
             )}
             
-            <div className="flex gap-4">
+            <div className="flex gap-4 sticky bottom-0 bg-gray-800 py-4"> {/* Made buttons sticky */}
               {selectedProject.github && (
                 <a
                   href={selectedProject.github}

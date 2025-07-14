@@ -17,7 +17,6 @@ const ProjectCard = ({ project, onClick }) => {
         </div>
       )}
       <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-      <p className="text-gray-300 mb-4">{project.description}</p>
       {project.tech && (
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tech.map((stack, idx) => (
