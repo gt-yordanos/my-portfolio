@@ -27,7 +27,7 @@ export default function Home() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/resume.pdf"
+            href="/YordanosTefera'sResume.pdf"
             download
             className="flex items-center gap-2 bg-emerald-400 text-gray-900 font-semibold px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-emerald-500/50 transition-all duration-300"
           >
