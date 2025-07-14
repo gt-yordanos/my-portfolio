@@ -1,23 +1,29 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const navItems = ["about", "projects", "contact"];
 
-  // Animation variants for the mobile menu sliding
   const mobileMenuVariants = {
-    hidden: { height: 0, opacity: 0, transition: { duration: 0.3, ease: "easeInOut" } },
-    visible: { height: "auto", opacity: 1, transition: { duration: 0.3, ease: "easeInOut" } },
+    hidden: {
+      height: 0,
+      opacity: 0,
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+    visible: {
+      height: "auto",
+      opacity: 1,
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
   };
 
-  // Common styles for links with bottom border on active
   const linkBaseClasses =
     "cursor-pointer text-white transition-colors duration-300 relative";
-
   const activeBorderClass = "text-emerald-400";
 
   return (
@@ -28,31 +34,33 @@ export default function Navbar() {
       className="bg-gray-900 text-white sticky top-0 z-50 font-poppins shadow-lg"
     >
       <div className="flex justify-between items-center py-4 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32">
-        {/* Logo */}
-        <h1 className="text-2xl font-bold tracking-wide cursor-pointer select-none">
+        <a className="text-2xl font-bold tracking-wide cursor-pointer select-none" href="#home">
           Yordanos<span className="text-emerald-400">.</span>
-        </h1>
+        </a>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex space-x-10 font-medium">
           {navItems.map((section) => (
             <li key={section} className="relative group">
               <Link
-                activeClass="text-emerald-400"
                 to={section}
                 spy={true}
                 smooth={true}
-                offset={-80} // Adjust this if your navbar height changes
+                offset={-80}
                 duration={500}
-                className={`${linkBaseClasses} group-hover:text-emerald-400`}
+                onSetActive={() => setActiveSection(section)}
+                className={`${linkBaseClasses} ${
+                  activeSection === section ? activeBorderClass : ""
+                } group-hover:text-emerald-400`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
-
-                {/* Border bottom, visible only when active or on hover */}
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full group-active:w-full" />
-
-                {/* When activeClass applies, this span width should expand */}
-                {/* We will control it via tailwind and react-scroll activeClass */}
+                <span
+                  className={`absolute left-0 bottom-0 h-[2px] bg-emerald-400 transition-all duration-300 ${
+                    activeSection === section
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
+                  }`}
+                />
               </Link>
             </li>
           ))}
@@ -84,18 +92,20 @@ export default function Navbar() {
               {navItems.map((section) => (
                 <li key={section} className="relative group">
                   <Link
-                    activeClass="text-emerald-400 border-b-2 border-emerald-400"
                     to={section}
                     spy={true}
                     smooth={true}
                     offset={-80}
                     duration={500}
                     onClick={() => setMenuOpen(false)}
-                    className="block cursor-pointer text-white hover:text-emerald-400 transition-colors duration-300 pb-1"
+                    onSetActive={() => setActiveSection(section)}
+                    className={`block cursor-pointer transition-colors duration-300 pb-1 ${
+                      activeSection === section
+                        ? "text-emerald-400 border-b-2 border-emerald-400"
+                        : "text-white hover:text-emerald-400"
+                    }`}
                   >
                     {section.charAt(0).toUpperCase() + section.slice(1)}
-                    {/* Border bottom visible only if active */}
-                    {/* We apply border-bottom on activeClass */}
                   </Link>
                 </li>
               ))}
@@ -103,6 +113,17 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Invisible Home Tracker */}
+      <Link
+        to="home"
+        spy={true}
+        smooth={true}
+        offset={-80}
+        duration={500}
+        onSetActive={() => setActiveSection("")}
+        style={{ display: "none" }}
+      />
     </motion.nav>
   );
 }
