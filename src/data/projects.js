@@ -46,18 +46,6 @@ const projects = [
     link: "https://kt-delivery.example.com",
   },
   {
-    id: 3,
-    title: "HUESA Official Website",
-    description: "Dynamic website for Haramaya University Economics Student Association (HUESA).",
-    details:
-      "I developed the official website for the Haramaya University Economics Student Association (HUESA) while I was a student. The website features a dynamic homepage that showcases current executives, founding members, office location, opening hours, and more. Admins can manage content including member registrations, event posting, and registration status (open/closed). The system also supports filtering and exporting member data as Excel files and automatic certificate generation.",
-    tech: ["React.js", "Firebase", "Vercel"],
-    image: huesa1,
-    images: [huesa1, huesa2, huesa3, huesa4],
-    github: "https://github.com/yourusername/huesa-website",
-    link: "https://huesa-website.vercel.app",
-  },
-  {
     id: 4,
     title: "Abbabiyo Plant Disease Detection System",
     description: "Smart agriculture system detecting corn diseases using deep learning.",
