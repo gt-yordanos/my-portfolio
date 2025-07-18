@@ -29,8 +29,8 @@ const projects = [
     tech: ["MongoDB", "Express", "React", "Node.js", "Google Gemini API"],
     image: kuraz1,
     images: [kuraz1, kuraz2, kuraz3, kuraz4, kuraz5, kuraz6],
-    github: "https://github.com/yourusername/kuraz-job-matcher",
-    link: "https://kuraz-jobmatcher.example.com",
+    github: "https://github.com/gt-yordanos/kuraz-ai-based-job-matcher-mern-stack",
+    link: "https://kuraz-ai-based-job-matcher-mern-stack.vercel.app/",
   },
   {
     id: 2,
@@ -42,8 +42,8 @@ const projects = [
     tech: ["MongoDB", "Express", "React", "Node.js", "Firebase", "Chapa API"],
     image: kt1,
     images: [kt1, kt2, kt3, kt4],
-    github: "https://github.com/yourusername/kt-delivery",
-    link: "https://kt-delivery.example.com",
+    github: "https://github.com/gt-yordanos/kt-food-delivery",
+    link: "https://kt-food-delivery-psi.vercel.app/",
   },
   {
     id: 4,
@@ -54,8 +54,8 @@ const projects = [
     tech: ["Python", "FastAPI", "TensorFlow", "React", "Hugging Face"],
     image: abba1,
     images: [abba1, abba2],
-    github: "https://github.com/yourusername/abbabiyo-plant-disease",
-    link: "https://abbabiyo-disease.example.com",
+    github: "https://github.com/gt-yordanos/Abba-Biyyo-Plant-Disease-Detection",
+    link: "https://abbabiyyo.vercel.app/",
   },
   {
     id: 5,
@@ -66,8 +66,8 @@ const projects = [
     tech: ["React.js", "Firebase", "Vercel"],
     image: huesa1,
     images: [huesa1, huesa2, huesa3, huesa4],
-    github: "https://github.com/yourusername/huesa-website",
-    link: "https://huesa-website.vercel.app",
+    github: "https://github.com/gt-yordanos/HUESA-web-app",
+    link: "https://huesa.vercel.app/",
   },
 ];
 
