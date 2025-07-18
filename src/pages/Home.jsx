@@ -36,7 +36,7 @@ export default function Home() {
           </a>
 
           <a
-            href="https://linkedin.com/in/yourlinkedin"
+            href="https://linkedin.com/in/yordanosgtefera"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-[#0077B5] text-white font-semibold px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-300"
