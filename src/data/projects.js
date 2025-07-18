@@ -1,66 +1,85 @@
-// src/data/projects.js
-import kt1 from "../assets/kt1.png";
+import kt1 from "../assets/ktDelivery/1.png";
+import kt2 from "../assets/ktDelivery/2.png";
+import kt3 from "../assets/ktDelivery/3.png";
+import kt4 from "../assets/ktDelivery/4.png";
+
+import kuraz1 from "../assets/kurazJob/1.png";
+import kuraz2 from "../assets/kurazJob/2.png";
+import kuraz3 from "../assets/kurazJob/3.png";
+import kuraz4 from "../assets/kurazJob/4.png";
+import kuraz5 from "../assets/kurazJob/5.png";
+import kuraz6 from "../assets/kurazJob/6.png";
+
+import huesa1 from "../assets/huesa/1.png";
+import huesa2 from "../assets/huesa/2.png";
+import huesa3 from "../assets/huesa/3.png";
+import huesa4 from "../assets/huesa/4.png";
+
+import abba1 from "../assets/abbaBiyyo/1.png";
+import abba2 from "../assets/abbaBiyyo/2.png";
 
 const projects = [
   {
     id: 1,
-    title: "KT Restaurant Delivery System",
-    description: "On-campus food delivery platform for Haramaya University with integrated Chapa payment",
-    details:
-      "A full-functional food delivery system serving all 3 campuses of Haramaya University. Features include real-time order tracking, multiple payment options (including Chapa integration), restaurant management dashboard, and delivery personnel tracking. The system significantly improved food accessibility for students across campuses.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "Chapa API", "Firebase"],
-    image: kt1,
-    images: [kt1, kt1, kt1, kt1],
-    github: "https://github.com/yourusername/kt-delivery",
-    link: "https://kt-delivery.example.com",
-  },
-  {
-    id: 2,
-    title: "Project 2",
-    description: "Description of project 2",
-    details: "Detailed description of project 2 with all features and functionalities.",
-    tech: ["Vue.js", "Django", "PostgreSQL"],
-    image: kt1,
-    images: [kt1, kt1],
-    github: "https://github.com/yourusername/project2",
-    link: "https://project2.example.com",
-  },
-  {
-    id: 3,
-    title: "Kuraz AI Based Job Matcher and Applicant Ranker",
+    title: "Kuraz AI-Based Job Matcher and Applicant Ranker",
     description:
-      "Developed a system assisting applicants through the application process and ranking them on employer’s side, using Google Gemini API and rule-based ranking algorithms.",
+      "An intelligent hiring platform using AI chatbot, ranking algorithms, and job matching.",
     details:
-      "Kuraz uses AI and rule-based methods to help applicants apply efficiently and ranks candidates for employers. Features resume parsing, AI chat assistance, and ranking dashboards.",
-    tech: ["React", "Laravel", "Python", "Google Gemini API"],
-    image: kt1,
-    images: [kt1],
+      "Kuraz is an AI-powered job-matching system that includes an integrated chatbot to assist applicants, a resume parsing engine, a leaderboard for applicant rankings, and a dashboard for job postings. It uses Google Gemini API to help applicants and rule-based algorithms for employer-side filtering. Built using the MERN stack, the platform supports advanced AI-driven features for modern job recruiting.",
+    tech: ["MongoDB", "Express", "React", "Node.js", "Google Gemini API"],
+    image: kuraz1,
+    images: [kuraz1, kuraz2, kuraz3, kuraz4, kuraz5, kuraz6],
     github: "https://github.com/yourusername/kuraz-job-matcher",
     link: "https://kuraz-jobmatcher.example.com",
   },
   {
+    id: 2,
+    title: "KT Restaurant Delivery System",
+    description:
+      "Full-stack food delivery platform for all campuses of Haramaya University with Chapa payment.",
+    details:
+      "KT Delivery is a complete food delivery system designed to serve all three campuses of Haramaya University. It offers real-time order tracking, Chapa payment integration, a dashboard for restaurant owners, and a delivery personnel management system. The system improves student access to meals with modern delivery and payment features.",
+    tech: ["MongoDB", "Express", "React", "Node.js", "Firebase", "Chapa API"],
+    image: kt1,
+    images: [kt1, kt2, kt3, kt4],
+    github: "https://github.com/yourusername/kt-delivery",
+    link: "https://kt-delivery.example.com",
+  },
+  {
+    id: 3,
+    title: "HUESA Official Website",
+    description: "Dynamic website for Haramaya University Economics Student Association (HUESA).",
+    details:
+      "I developed the official website for the Haramaya University Economics Student Association (HUESA) while I was a student. The website features a dynamic homepage that showcases current executives, founding members, office location, opening hours, and more. Admins can manage content including member registrations, event posting, and registration status (open/closed). The system also supports filtering and exporting member data as Excel files and automatic certificate generation.",
+    tech: ["React.js", "Firebase", "Vercel"],
+    image: huesa1,
+    images: [huesa1, huesa2, huesa3, huesa4],
+    github: "https://github.com/yourusername/huesa-website",
+    link: "https://huesa-website.vercel.app",
+  },
+  {
     id: 4,
     title: "Abbabiyo Plant Disease Detection System",
-    description: "Built a corn disease detection system using CNNs, achieving 94% accuracy.",
+    description: "Smart agriculture system detecting corn diseases using deep learning.",
     details:
-      "Abbabiyo uses convolutional neural networks (CNNs) to detect various corn diseases with high accuracy. It provides farmers with timely alerts and disease management tips.",
-    tech: ["Python", "TensorFlow", "Keras", "Flask"],
-    image: kt1,
-    images: [kt1],
+      "Abbabiyo is a plant disease detection system that uses Convolutional Neural Networks (CNNs) to identify corn diseases from leaf images. It provides farmers with early warnings, diagnosis, and guidance for disease treatment. The backend was developed using FastAPI and TensorFlow, and the frontend with React. Hugging Face was used for model management and deployment.",
+    tech: ["Python", "FastAPI", "TensorFlow", "React", "Hugging Face"],
+    image: abba1,
+    images: [abba1, abba2],
     github: "https://github.com/yourusername/abbabiyo-plant-disease",
     link: "https://abbabiyo-disease.example.com",
   },
   {
     id: 5,
-    title: "Habesha Attire / Ethiopian Traditional Clothing Detection System",
-    description: "Implemented a model detecting Habesha traditional clothing vs casual attire, with 80% accuracy.",
+    title: "HUESA Official Website",
+    description: "Dynamic website for Haramaya University Economics Student Association (HUESA).",
     details:
-      "This system uses image recognition to classify Habesha traditional clothing versus casual wear, supporting cultural preservation through AI-driven classification.",
-    tech: ["PyTorch", "OpenCV", "FastAPI"],
-    image: kt1,
-    images: [kt1],
-    github: "https://github.com/yourusername/habesha-attire-detector",
-    link: "https://habesha-attire.example.com",
+      "I developed the official website for the Haramaya University Economics Student Association (HUESA) while I was a student. The website features a dynamic homepage that showcases current executives, founding members, office location, opening hours, and more. Admins can manage content including member registrations, event posting, and registration status (open/closed). The system also supports filtering and exporting member data as Excel files and automatic certificate generation.",
+    tech: ["React.js", "Firebase", "Vercel"],
+    image: huesa1,
+    images: [huesa1, huesa2, huesa3, huesa4],
+    github: "https://github.com/yourusername/huesa-website",
+    link: "https://huesa-website.vercel.app",
   },
 ];
 
