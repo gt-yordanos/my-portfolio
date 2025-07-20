@@ -39,7 +39,7 @@ export default function Contact() {
     {
       icon: <Github size={18} />,
       label: "GitHub",
-      value: "github.com/yordanosgtefera",
+      value: "github.com/gt-yordanos",
       link: "https://github.com/gt-yordanos",
     },
     {
