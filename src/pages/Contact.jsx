@@ -40,7 +40,7 @@ export default function Contact() {
       icon: <Github size={18} />,
       label: "GitHub",
       value: "github.com/yordanosgtefera",
-      link: "https://github.com/yordanosgtefera",
+      link: "https://github.com/gt-yordanos",
     },
     {
       icon: <Code size={18} />,
