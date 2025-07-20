@@ -51,8 +51,8 @@ export default function Contact() {
     {
       icon: <Instagram size={18} />,
       label: "Instagram",
-      value: "@yordanosgtefera",
-      link: "https://instagram.com/yordanosgtefera",
+      value: "@yarden_zion",
+      link: "https://www.instagram.com/yarden_zion/",
     },
     {
       icon: <Phone size={18} />,
