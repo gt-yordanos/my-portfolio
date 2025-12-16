@@ -18,7 +18,7 @@ export default function Home() {
       >
         <p className="text-xl font-semibold text-gray-400">Hi, I am</p>
         <h1 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-emerald-400 to-cyan-400 text-transparent bg-clip-text">
-          Yordanos Tefera
+          Yordanos G. Tefera
         </h1>
         <p className="text-lg sm:text-2xl font-bold text-gray-300">
           Software & AI Engineer
