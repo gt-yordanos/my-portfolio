@@ -18,6 +18,8 @@ import huesa4 from "../assets/huesa/4.png";
 import abba1 from "../assets/abbaBiyyo/1.png";
 import abba2 from "../assets/abbaBiyyo/2.png";
 
+import habeshAttire from "../assets/habeshaAttire/habesha-attire.jpg";
+
 const projects = [
   {
     id: 1,
@@ -58,6 +60,18 @@ const projects = [
     link: "https://abbabiyyo.vercel.app/",
   },
   {
+    id: 6,
+    title: "Habesha Libs(Attire) Detection",
+    description: "AI-powered system for detecting traditional Habesha attire using machine learning.",
+    details:
+      "Habesha Attire Detection is an AI-based application that identifies traditional Ethiopian clothing using computer vision and deep learning techniques. The system analyzes images to recognize various types of Habesha attire, providing cultural preservation and fashion insights. Built with Python and deployed on Hugging Face Spaces for easy access and demonstration.",
+    image: habeshAttire,
+    images: [habeshAttire],
+    tech: ["Python", "Hugging Face", "Machine Learning", "CNN"],
+    github: "https://github.com/gt-yordanos/habesha-attire-detection",
+    link: "https://huggingface.co/spaces/YordanosTefera/habesha-attire-detection",
+  },
+  {
     id: 5,
     title: "HUESA Official Website",
     description: "Dynamic website for Haramaya University Economics Student Association (HUESA).",
@@ -68,7 +82,7 @@ const projects = [
     images: [huesa1, huesa2, huesa3, huesa4],
     github: "https://github.com/gt-yordanos/HUESA-web-app",
     link: "https://huesa.vercel.app/",
-  },
+  }
 ];
 
 export default projects;

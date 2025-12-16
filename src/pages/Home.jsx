@@ -21,13 +21,13 @@ export default function Home() {
           Yordanos Tefera
         </h1>
         <p className="text-lg sm:text-2xl font-bold text-gray-300">
-          Software Engineer
+          Software & AI Engineer
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="/YordanosTefera'sResume.pdf"
+            href="/YordanosTefera'sCV.pdf"
             download
             className="flex items-center gap-2 bg-emerald-400 text-gray-900 font-semibold px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-emerald-500/50 transition-all duration-300"
           >

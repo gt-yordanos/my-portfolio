@@ -38,6 +38,8 @@ import {
   SiTensorflow,
   SiPytorch,
   SiGo,
+  SiHuggingface,
+  SiLangchain,
 } from "react-icons/si";
 
 import { HiLightningBolt } from "react-icons/hi";
@@ -68,6 +70,8 @@ function StackIcon({ name, className = "text-white", size = 24 }) {
     "scikit-learn": <FaPython {...iconProps} />,
     tensorflow: <SiTensorflow {...iconProps} />,
     pytorch: <SiPytorch {...iconProps} />,
+    langchain: <SiLangchain {...iconProps} />,
+    "hugging face": <SiHuggingface {...iconProps} />,
     git: <FaGitAlt {...iconProps} />,
     github: <FaGithub {...iconProps} />,
     "github actions": <SiGithubactions {...iconProps} />,
@@ -83,62 +87,63 @@ function StackIcon({ name, className = "text-white", size = 24 }) {
 
 const skills = {
   languages: [
-    { name: "C++" },
-    { name: "Java" },
     { name: "Python" },
     { name: "JavaScript" },
-    { name: "TypeScript" },
-    { name: "Golang" },
+    { name: "C++" }
   ],
   frontend: [
-    { name: "HTML5" },
-    { name: "CSS3" },
     { name: "ReactJS" },
-    { name: "React Native" },
     { name: "Tailwind CSS" },
   ],
   backend: [
+    { name: "FastAPI" },
     { name: "NodeJS" },
     { name: "ExpressJS" },
-    { name: "FastAPI" },
-    { name: "Django" },
-    { name: "Firebase" },
   ],
   database: [
-    { name: "PostgreSQL" },
+    // { name: "PostgreSQL" },
     { name: "MySQL" },
     { name: "MongoDB" },
   ],
-  "machine learning": [
+  "machine learning & AI Tools": [
     { name: "scikit-learn" },
     { name: "TensorFlow" },
-    { name: "PyTorch" },
+    { name: "LangChain" },
+    { name: "Hugging Face" },
+    // { name: "PyTorch" },
   ],
   devops: [
     { name: "Git" },
     { name: "GitHub" },
     { name: "GitHub Actions" },
-    { name: "GitLab" },
-    { name: "AWS" },
+    // { name: "GitLab" },
+    // { name: "AWS" },
     { name: "Docker" },
-    { name: "Kubernetes" },
+    // { name: "Kubernetes" },
   ],
 };
 
 const experiences = [
   {
-    title: "Frontend Developer & Team Lead",
-    company: "Kuraz Technologies, Addis Ababa",
-    period: "Jun 2024 - Sep 2024 (Internship)",
+    title: "Fullstack Developer",
+    company: "Helder Technologies, Addis Ababa",
+    period: "July 2025 - present (Fulltime)",
     description:
-      "Delivered a project on time by engaging the team and delegating tasks according to strengths.",
+      "I work On full stack SaaS and ERP projects using tech stacks such as Node.JS, FastAPI, and React.JS",
   },
   {
-    title: "Fullstack Web Developer",
+    title: "Fullstack Developer",
     company: "HUESA, Haramaya University",
     period: "Jan 2025 - Mar 2025 (Volunteering)",
     description:
       "Developed a responsive and functional website using React and Firebase, reducing manual workload by 70%.",
+  },
+  {
+    title: "Software Developer & Team Lead",
+    company: "Kuraz Technologies, Addis Ababa",
+    period: "Jun 2024 - Sep 2024 (Internship)",
+    description:
+      "Delivered a project on time by engaging the team and delegating tasks according to strengths.",
   },
 ];
 
