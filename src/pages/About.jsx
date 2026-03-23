@@ -96,7 +96,7 @@ const skills = {
     { name: "ExpressJS" },
   ],
   database: [
-    // { name: "PostgreSQL" },
+    { name: "PostgreSQL" },
     { name: "MySQL" },
     { name: "MongoDB" },
   ],

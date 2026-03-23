@@ -77,7 +77,7 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
             <a
-              href="/YordanosTefera'sCV.pdf"
+              href="/YordanosTefera'sResume.pdf"
               download
               className="neo-brutal flex items-center gap-2 px-6 py-3 bg-lime-500 text-black font-medium"
             >
