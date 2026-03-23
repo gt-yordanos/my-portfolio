@@ -1,115 +1,111 @@
-import {
-  Mail,
-  Linkedin,
-  Github,
-  Phone,
-  MapPin,
-  Instagram,
-  Code,
-} from "lucide-react";
+import React from "react";
+import { Mail, Linkedin, Github, Phone, MapPin, Instagram, Code } from "lucide-react";
 import { motion } from "framer-motion";
-
-const contactVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.15,
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  }),
-};
 
 export default function Contact() {
   const contactInfo = [
     {
-      icon: <Mail size={18} />,
+      icon: <Mail className="w-5 h-5" />,
       label: "Email",
       value: "gt.yordanos@gmail.com",
       link: "mailto:gt.yordanos@gmail.com",
     },
     {
-      icon: <Linkedin size={18} />,
+      icon: <Linkedin className="w-5 h-5" />,
       label: "LinkedIn",
-      value: "linkedin.com/in/yordanosgtefera",
+      value: "yordanosgtefera",
       link: "https://www.linkedin.com/in/yordanosgtefera/",
     },
     {
-      icon: <Github size={18} />,
+      icon: <Github className="w-5 h-5" />,
       label: "GitHub",
-      value: "github.com/gt-yordanos",
+      value: "gt-yordanos",
       link: "https://github.com/gt-yordanos",
     },
     {
-      icon: <Code size={18} />,
+      icon: <Code className="w-5 h-5" />,
       label: "LeetCode",
-      value: "leetcode.com/u/yordanostefera",
+      value: "yordanostefera",
       link: "https://leetcode.com/u/yordanostefera/",
     },
     {
-      icon: <Instagram size={18} />,
+      icon: <Instagram className="w-5 h-5" />,
       label: "Instagram",
       value: "@yarden_zion",
       link: "https://www.instagram.com/yarden_zion/",
     },
     {
-      icon: <Phone size={18} />,
+      icon: <Phone className="w-5 h-5" />,
       label: "Phone",
       value: "+251 982 873 779",
       link: "tel:+251982873779",
     },
     {
-      icon: <MapPin size={18} />,
+      icon: <MapPin className="w-5 h-5" />,
       label: "Location",
       value: "Dire Dawa, Ethiopia",
     },
   ];
 
   return (
-    <section
-      id="contact"
-      className="bg-gray-900 text-white py-16 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32"
-    >
-      <h2 className="text-4xl font-extrabold text-center text-white mb-12">
-        Contact Me
-      </h2>
+    <section id="contact" className="py-24 px-6 lg:px-12 xl:px-20">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="font-mono text-emerald-400 text-sm mb-2">$ contact --info</div>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4">Get In Touch</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full" />
+        </motion.div>
 
-      <p className="text-gray-300 mb-10 max-w-2xl mx-auto text-center leading-relaxed">
-        Feel free to reach out via email or connect on any platform below.
-        I'm always open to collaboration, feedback, or just a friendly chat!
-      </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
+          {contactInfo.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="glass rounded-xl p-6 hover:bg-white/5 transition-all group"
+            >
+              <div className="flex items-start gap-4">
+                <div className="text-emerald-400 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-mono text-sm text-gray-400 mb-1">{item.label}</p>
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-emerald-400 transition-colors break-words"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="text-white break-words">{item.value}</p>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
-        {contactInfo.map((item, i) => (
-          <motion.div
-            key={item.label}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.6 }}
-            variants={contactVariants}
-            className="flex items-start gap-4"
-          >
-            <div className="text-emerald-400 mt-1">{item.icon}</div>
-            <div>
-              <p className="font-semibold text-white">{item.label}:</p>
-              {item.link ? (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-300 hover:underline text-sm"
-                >
-                  {item.value}
-                </a>
-              ) : (
-                <p className="text-gray-300 text-sm">{item.value}</p>
-              )}
-            </div>
-          </motion.div>
-        ))}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Open to collaboration, freelance opportunities, and interesting projects. 
+            Feel free to reach out via any platform above.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

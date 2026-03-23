@@ -1,23 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import projects from "../data/projects";
-import { FiGithub, FiExternalLink } from "react-icons/fi";
+import { Github, ExternalLink, X } from "lucide-react";
 import Modal from "react-modal";
 
-Modal.setAppElement('#root');
-
-const projectVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
+Modal.setAppElement("#root");
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -33,161 +20,175 @@ export default function Projects() {
   };
 
   return (
-    <section
-      id="projects"
-      className="bg-gray-900 text-white py-16 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32"
-    >
-      <h2 className="text-4xl font-extrabold text-center text-white mb-12">
-        Projects
-      </h2>
+    <section id="projects" className="py-24 px-6 lg:px-12 xl:px-20">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="font-mono text-emerald-400 text-sm mb-2">$ ls projects/</div>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4">Featured Work</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full" />
+        </motion.div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-        {projects.map((project, i) => (
-          <motion.div
-            key={project.id}
-            className="bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-emerald-500/50 transition-all duration-300 text-left cursor-pointer"
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={projectVariants}
-            onClick={() => openModal(project)}
-          >
-            {project.image && (
-              <div className="mb-4 overflow-hidden rounded-lg aspect-[16/9]">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover"
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              onClick={() => openModal(project)}
+              className="group glass rounded-2xl overflow-hidden hover:bg-white/5 transition-all cursor-pointer"
+            >
+              <div className="aspect-video overflow-hidden bg-gray-800">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-            )}
-            <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-            {project.tech && (
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((stack, idx) => (
-                  <span
-                    key={idx}
-                    className="bg-emerald-600/20 text-emerald-300 text-xs px-2 py-1 rounded-md font-medium"
-                  >
-                    {stack}
-                  </span>
-                ))}
-              </div>
-            )}
-            <div className="flex gap-4">
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <FiGithub size={20} />
-                </a>
-              )}
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <FiExternalLink size={20} />
-                </a>
-              )}
-            </div>
-          </motion.div>
-        ))}
-      </div>
+              
+              <div className="p-6 space-y-4">
+                <h3 className="text-xl font-semibold group-hover:text-emerald-400 transition-colors line-clamp-2">
+                  {project.title}
+                </h3>
+                
+                <p className="text-gray-400 text-sm line-clamp-2">
+                  {project.description}
+                </p>
 
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Project Details"
-        className="modal bg-gray-800 rounded-lg p-6 max-w-4xl mx-auto my-12 outline-none max-h-[90vh] overflow-y-auto"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50"
-      >
-        {selectedProject && (
-          <div className="text-white">
-            <div className="flex justify-between items-start mb-6 sticky top-0 bg-gray-800 py-4 z-10">
-              <h2 className="text-2xl font-bold">{selectedProject.title}</h2>
-              <button 
-                onClick={closeModal}
-                className="text-gray-400 hover:text-white text-2xl"
-              >
-                &times;
-              </button>
-            </div>
-
-            {/* Description first */}
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-2">Description</h3>
-              <p className="text-gray-300">{selectedProject.details}</p>
-            </div>
-
-            {/* Images next */}
-            {selectedProject.images && selectedProject.images.length > 0 && (
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-4">Screenshots</h3>
-                <div className="flex flex-col gap-4">
-                  {selectedProject.images.map((img, index) => (
-                    <img 
-                      key={index}
-                      src={img} 
-                      alt={`${selectedProject.title} screenshot ${index + 1}`}
-                      className="rounded-lg w-full object-cover max-h-[400px]"
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Tech stack */}
-            {selectedProject.tech && (
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2">Technologies</h3>
                 <div className="flex flex-wrap gap-2">
-                  {selectedProject.tech.map((stack, idx) => (
+                  {project.tech.slice(0, 3).map((tech, idx) => (
                     <span
                       key={idx}
-                      className="bg-emerald-600/20 text-emerald-300 text-sm px-3 py-1 rounded-md font-medium"
+                      className="font-mono text-xs px-2 py-1 bg-emerald-400/10 text-emerald-400 rounded"
                     >
-                      {stack}
+                      {tech}
                     </span>
                   ))}
+                  {project.tech.length > 3 && (
+                    <span className="font-mono text-xs px-2 py-1 bg-white/5 text-gray-400 rounded">
+                      +{project.tech.length - 3}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex gap-3 pt-2">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-2 text-sm text-gray-400 hover:text-emerald-400 transition-colors"
+                    >
+                      <Github className="w-4 h-4" />
+                      Code
+                    </a>
+                  )}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex items-center gap-2 text-sm text-gray-400 hover:text-emerald-400 transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live
+                    </a>
+                  )}
                 </div>
               </div>
-            )}
+            </motion.div>
+          ))}
+        </div>
 
-            {/* Links */}
-            <div className="flex gap-4 sticky bottom-0 bg-gray-800 py-4">
-              {selectedProject.github && (
-                <a
-                  href={selectedProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg"
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          className="modal-content"
+          overlayClassName="modal-overlay"
+        >
+          {selectedProject && (
+            <div className="glass rounded-2xl max-w-4xl mx-auto max-h-[90vh] overflow-y-auto">
+              <div className="sticky top-0 glass border-b border-white/10 p-6 flex justify-between items-start z-10">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2">{selectedProject.title}</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tech.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="font-mono text-xs px-2 py-1 bg-emerald-400/10 text-emerald-400 rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <button
+                  onClick={closeModal}
+                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                 >
-                  <FiGithub size={18} /> View Code
-                </a>
-              )}
-              {selectedProject.link && (
-                <a
-                  href={selectedProject.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg"
-                >
-                  <FiExternalLink size={18} /> Live Demo
-                </a>
-              )}
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="p-6 space-y-6">
+                <div>
+                  <h3 className="font-mono text-emerald-400 text-sm mb-2">OVERVIEW</h3>
+                  <p className="text-gray-300 leading-relaxed">{selectedProject.details}</p>
+                </div>
+
+                {selectedProject.images && selectedProject.images.length > 0 && (
+                  <div>
+                    <h3 className="font-mono text-emerald-400 text-sm mb-4">SCREENSHOTS</h3>
+                    <div className="space-y-4">
+                      {selectedProject.images.map((img, index) => (
+                        <img
+                          key={index}
+                          src={img}
+                          alt={`${selectedProject.title} screenshot ${index + 1}`}
+                          className="rounded-xl w-full"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex gap-4 pt-4">
+                  {selectedProject.github && (
+                    <a
+                      href={selectedProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-6 py-3 bg-emerald-400 text-black font-medium rounded-lg hover:bg-emerald-300 transition-all"
+                    >
+                      <Github className="w-4 h-4" />
+                      View Code
+                    </a>
+                  )}
+                  {selectedProject.link && (
+                    <a
+                      href={selectedProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-6 py-3 glass rounded-lg hover:bg-white/10 transition-all"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Demo
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        )}
-      </Modal>
+          )}
+        </Modal>
+      </div>
     </section>
   );
 }

@@ -1,47 +1,43 @@
-import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Menu, X, Terminal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = ["about", "projects", "contact"];
 
-  const mobileMenuVariants = {
-    hidden: {
-      height: 0,
-      opacity: 0,
-      transition: { duration: 0.3, ease: "easeInOut" },
-    },
-    visible: {
-      height: "auto",
-      opacity: 1,
-      transition: { duration: 0.3, ease: "easeInOut" },
-    },
-  };
-
-  const linkBaseClasses =
-    "cursor-pointer text-white transition-colors duration-300 relative";
-  const activeBorderClass = "text-emerald-400";
-
   return (
     <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-gray-900 text-white sticky top-0 z-50 font-poppins shadow-lg"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "glass shadow-lg" : "bg-transparent"
+      }`}
     >
-      <div className="flex justify-between items-center py-4 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32">
-        <a className="text-2xl font-bold tracking-wide cursor-pointer select-none" href="#home">
-          Yordanos<span className="text-emerald-400">.</span>
-        </a>
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 lg:px-12 xl:px-20">
+        <Link to="home" smooth duration={500} className="cursor-pointer">
+          <div className="flex items-center gap-2 group">
+            <Terminal className="w-5 h-5 text-emerald-400" />
+            <span className="font-mono text-lg font-semibold">
+              <span className="text-gray-400">~/</span>
+              <span className="text-white group-hover:text-emerald-400 transition-colors">yordanos</span>
+            </span>
+          </div>
+        </Link>
 
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex space-x-10 font-medium">
+        <ul className="hidden md:flex items-center gap-1">
           {navItems.map((section) => (
-            <li key={section} className="relative group">
+            <li key={section}>
               <Link
                 to={section}
                 spy={true}
@@ -49,63 +45,47 @@ export default function Navbar() {
                 offset={-80}
                 duration={500}
                 onSetActive={() => setActiveSection(section)}
-                className={`${linkBaseClasses} ${
-                  activeSection === section ? activeBorderClass : ""
-                } group-hover:text-emerald-400`}
+                className={`px-4 py-2 rounded-lg font-mono text-sm cursor-pointer transition-all duration-200 ${
+                  activeSection === section
+                    ? "bg-emerald-400/10 text-emerald-400"
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                }`}
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-                <span
-                  className={`absolute left-0 bottom-0 h-[2px] bg-emerald-400 transition-all duration-300 ${
-                    activeSection === section
-                      ? "w-full"
-                      : "w-0 group-hover:w-full"
-                  }`}
-                />
+                {section}
               </Link>
             </li>
           ))}
         </ul>
 
-        {/* Hamburger */}
         <button
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          className="md:hidden focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded"
           onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden p-2 rounded-lg hover:bg-white/5 transition-colors"
+          aria-label="Toggle menu"
         >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {menuOpen && (
           <motion.div
-            key="mobileMenu"
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={mobileMenuVariants}
-            className="md:hidden bg-gray-800 overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden glass border-t border-white/10"
           >
-            <ul className="flex flex-col px-6 py-4 space-y-4 font-medium">
+            <ul className="px-6 py-4 space-y-2">
               {navItems.map((section) => (
-                <li key={section} className="relative group">
+                <li key={section}>
                   <Link
                     to={section}
-                    spy={true}
-                    smooth={true}
+                    smooth
                     offset={-80}
                     duration={500}
                     onClick={() => setMenuOpen(false)}
-                    onSetActive={() => setActiveSection(section)}
-                    className={`block cursor-pointer transition-colors duration-300 pb-1 ${
-                      activeSection === section
-                        ? "text-emerald-400 border-b-2 border-emerald-400"
-                        : "text-white hover:text-emerald-400"
-                    }`}
+                    className="block px-4 py-2 rounded-lg font-mono text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
                   >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    {section}
                   </Link>
                 </li>
               ))}
@@ -114,16 +94,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Invisible Home Tracker */}
-      <Link
-        to="home"
-        spy={true}
-        smooth={true}
-        offset={-80}
-        duration={500}
-        onSetActive={() => setActiveSection("")}
-        style={{ display: "none" }}
-      />
+      <Link to="home" spy smooth offset={-80} duration={500} onSetActive={() => setActiveSection("")} style={{ display: "none" }} />
     </motion.nav>
   );
 }

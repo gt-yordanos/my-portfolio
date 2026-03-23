@@ -1,11 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  GraduationCap,
-  Code2,
-  Briefcase,
-  Globe,
-} from "lucide-react";
+import { GraduationCap, Code2, Briefcase, Globe, Award } from "lucide-react";
 
 import {
   FaJava,
@@ -162,109 +157,158 @@ const timelineVariants = {
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="bg-gray-900 text-white py-16 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32"
-    >
-      {/* About Me Title */}
-      <h2 className="text-4xl font-extrabold text-center text-white mb-12">
-        About Me
-      </h2>
+    <section id="about" className="py-24 px-6 lg:px-12 xl:px-20">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="font-mono text-emerald-400 text-sm mb-2">$ cat about.txt</div>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4">About Me</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full" />
+        </motion.div>
 
-      {/* Education */}
-      <div className="mb-12 max-w-4xl">
-        <h3 className="text-xl font-semibold flex items-center gap-2 mb-4 text-emerald-400">
-          <GraduationCap size={20} /> Education
-        </h3>
-        <p className="text-gray-300 leading-relaxed text-left">
-          <span className="font-bold text-white">BSc in Computer Science</span>
-          <br />
-          Haramaya University | May 2022 - June 2025
-          <br />
-          <span className="font-semibold text-emerald-400">CGPA:</span> 3.82 / 4.00
-        </p>
-      </div>
-
-      {/* Tech Stack */}
-      <div className="mb-12 max-w-7xl">
-        <h3 className="text-xl font-semibold flex items-center gap-2 mb-6 text-emerald-400">
-          <Code2 size={20} /> Tech Stack
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {Object.entries(skills).map(([category, techs]) => (
-            <div key={category}>
-              <h4 className="text-emerald-300 font-semibold mb-4 capitalize text-left">
-                {category}
-              </h4>
-              <div className="flex flex-wrap gap-4">
-                {techs.map(({ name }) => (
-                  <div
-                    key={name}
-                    className="flex flex-col items-center justify-center bg-gray-800 rounded-lg px-4 py-3 shadow hover:scale-105 transform transition duration-300 cursor-default w-24"
-                    title={name}
-                  >
-                    <StackIcon name={name} size={28} />
-                    <span className="mt-2 text-xs text-white font-medium text-center">
-                      {name}
-                    </span>
-                  </div>
-                ))}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass rounded-2xl p-6 hover:bg-white/5 transition-all"
+          >
+            <GraduationCap className="w-8 h-8 text-emerald-400 mb-4" />
+            <h3 className="text-xl font-semibold mb-3">Education</h3>
+            <div className="space-y-2 text-gray-400">
+              <p className="font-semibold text-white">BSc in Computer Science</p>
+              <p className="text-sm">Haramaya University</p>
+              <p className="text-sm">May 2022 - June 2025</p>
+              <div className="flex items-center gap-2 mt-3">
+                <Award className="w-4 h-4 text-emerald-400" />
+                <span className="font-mono text-emerald-400">CGPA: 3.82/4.00</span>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </motion.div>
 
-      {/* Experience Timeline */}
-      <div className="mb-20 max-w-4xl">
-        <h3 className="text-xl font-semibold flex items-center gap-2 mb-12 text-emerald-400">
-          <Briefcase size={20} /> Experience
-        </h3>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="glass rounded-2xl p-6 hover:bg-white/5 transition-all"
+          >
+            <Briefcase className="w-8 h-8 text-emerald-400 mb-4" />
+            <h3 className="text-xl font-semibold mb-3">Current Role</h3>
+            <div className="space-y-2 text-gray-400">
+              <p className="font-semibold text-white">Fullstack Developer</p>
+              <p className="text-sm">Helder Technologies</p>
+              <p className="text-sm">Addis Ababa, Ethiopia</p>
+              <p className="text-sm font-mono text-emerald-400 mt-3">July 2025 - Present</p>
+            </div>
+          </motion.div>
 
-        <div className="relative ml-4 pl-8 border-l-2 border-emerald-500">
-          {experiences.map(({ title, company, period, description }, i) => (
-            <motion.div
-              key={i}
-              className="relative mb-12"
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.6 }}
-              variants={timelineVariants}
-            >
-              {/* Timeline Dot */}
-              <span className="absolute -left-[29px] top-1 w-5 h-5 bg-emerald-500 border-4 border-gray-900 rounded-full shadow-lg" />
-
-              {/* Content Card */}
-              <div className="bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-emerald-500/50 transition-all duration-300 text-left">
-                <h4 className="text-lg font-bold text-white">{title}</h4>
-                <p className="text-sm text-gray-400 italic mb-2">
-                  {company} | {period}
-                </p>
-                <p className="text-gray-300 leading-relaxed">{description}</p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="glass rounded-2xl p-6 hover:bg-white/5 transition-all"
+          >
+            <Globe className="w-8 h-8 text-emerald-400 mb-4" />
+            <h3 className="text-xl font-semibold mb-3">Languages</h3>
+            <div className="space-y-2 text-gray-400">
+              <div className="flex justify-between">
+                <span>English</span>
+                <span className="text-emerald-400">Proficient</span>
               </div>
-            </motion.div>
-          ))}
+              <div className="flex justify-between">
+                <span>Amharic</span>
+                <span className="text-emerald-400">Native</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Oromo</span>
+                <span className="text-emerald-400">Fluent</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </div>
 
-      {/* Languages I Speak */}
-      <div className="max-w-xl">
-        <h3 className="text-xl font-semibold flex items-center gap-2 mb-4 text-emerald-400">
-          <Globe size={20} /> Languages I Speak
-        </h3>
-        <ul className="list-disc list-inside text-gray-300 space-y-1 text-left">
-          <li>
-            <span className="text-white font-medium">English:</span> Proficient
-          </li>
-          <li>
-            <span className="text-white font-medium">Amharic:</span> Native
-          </li>
-          <li>
-            <span className="text-white font-medium">Oromo:</span> Fluent
-          </li>
-        </ul>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Code2 className="w-6 h-6 text-emerald-400" />
+            <h3 className="text-2xl font-bold">Tech Stack</h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {Object.entries(skills).map(([category, techs], idx) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="glass rounded-xl p-6"
+              >
+                <h4 className="font-mono text-sm text-emerald-400 mb-4 uppercase tracking-wider">
+                  {category}
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {techs.map(({ name }) => (
+                    <div
+                      key={name}
+                      className="group flex items-center gap-2 px-3 py-2 bg-white/5 rounded-lg hover:bg-white/10 transition-all cursor-default"
+                    >
+                      <StackIcon name={name} size={18} />
+                      <span className="text-sm text-gray-300 group-hover:text-white transition-colors">
+                        {name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Briefcase className="w-6 h-6 text-emerald-400" />
+            <h3 className="text-2xl font-bold">Experience</h3>
+          </div>
+
+          <div className="space-y-4">
+            {experiences.map(({ title, company, period, description }, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="glass rounded-xl p-6 hover:bg-white/5 transition-all group"
+              >
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                  <div>
+                    <h4 className="text-lg font-semibold group-hover:text-emerald-400 transition-colors">
+                      {title}
+                    </h4>
+                    <p className="text-gray-400 text-sm">{company}</p>
+                  </div>
+                  <span className="font-mono text-sm text-emerald-400 mt-2 md:mt-0">{period}</span>
+                </div>
+                <p className="text-gray-400 leading-relaxed">{description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

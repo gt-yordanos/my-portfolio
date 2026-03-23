@@ -1,12 +1,63 @@
-# React + Vite
+# Yordanos G. Tefera - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, production-grade portfolio website built with React, featuring 2026 design principles with glassmorphism, terminal-inspired aesthetics, and smooth animations.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Modern Design**: Glassmorphism effects, gradient accents, and minimalistic layout
+- **Developer Aesthetic**: Terminal-inspired elements with monospace fonts
+- **Smooth Animations**: Framer Motion for fluid transitions and micro-interactions
+- **Fully Responsive**: Optimized for all screen sizes
+- **Performance First**: Fast loading and smooth scrolling
+- **Accessible**: ARIA labels and semantic HTML
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19** - UI framework
+- **Vite** - Build tool
+- **Tailwind CSS 4** - Styling
+- **Framer Motion** - Animations
+- **Lucide React** - Icons
+- **React Modal** - Project details modal
+
+## 📦 Installation
+
+```bash
+npm install
+```
+
+## 🏃 Development
+
+```bash
+npm run dev
+```
+
+## 🏗️ Build
+
+```bash
+npm run build
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/     # Reusable components
+├── data/          # Project data
+├── layout/        # Navigation layout
+├── pages/         # Main sections (Home, About, Projects, Contact)
+├── assets/        # Images and media
+└── App.jsx        # Main app component
+```
+
+## 🎨 Design Principles
+
+- **Glassmorphism**: Subtle blur effects with transparency
+- **Terminal Vibes**: Monospace fonts and command-line aesthetics
+- **Emerald Accent**: Primary color for CTAs and highlights
+- **Dark Theme**: Deep black background (#0a0a0a)
+- **Micro-interactions**: Hover effects and smooth transitions
+
+## 📄 License
+
+© 2025 Yordanos G. Tefera. All rights reserved.
