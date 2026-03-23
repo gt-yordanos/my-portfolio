@@ -39,7 +39,7 @@ export default function Home() {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 lg:px-12 xl:px-20 pt-20">
+    <section id="home" className="relative z-10 min-h-screen flex items-center justify-center px-6 lg:px-12 xl:px-20 pt-20">
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         <motion.div

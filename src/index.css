@@ -8,27 +8,73 @@
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   @apply bg-[#0a0a0a] text-gray-100 antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Dot grid pattern - 2026 dev aesthetic */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(167, 139, 250, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Cursor spotlight effect - 2026 FAANG style - more visible and professional */
+.cursor-spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(132, 204, 22, 0.25),
+    rgba(132, 204, 22, 0.1) 40%,
+    transparent 70%
+  );
+}
+
+.cursor-spotlight.active {
+  opacity: 1;
 }
 
 .font-mono {
   font-family: "JetBrains Mono", monospace;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - 2026 minimal style */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-[#0a0a0a];
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-full;
+  background: rgba(132, 204, 22, 0.3);
+  transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-600;
+  background: rgba(132, 204, 22, 0.8);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(132, 204, 22, 0.3) transparent;
 }
 
 /* Glassmorphism utility */
