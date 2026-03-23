@@ -28,9 +28,9 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="font-mono text-emerald-400 text-sm mb-2">$ ls projects/</div>
+          <div className="font-mono text-violet-400 text-sm mb-2">$ ls projects/</div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">Featured Work</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400" />
+          <div className="w-20 h-1 bg-gradient-to-r from-violet-400 to-lime-500" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -53,7 +53,7 @@ export default function Projects() {
               </div>
               
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-semibold group-hover:text-emerald-400 transition-colors line-clamp-2">
+                <h3 className="text-xl font-semibold group-hover:text-violet-400 transition-colors line-clamp-2">
                   {project.title}
                 </h3>
                 
@@ -65,7 +65,7 @@ export default function Projects() {
                   {project.tech.slice(0, 3).map((tech, idx) => (
                     <span
                       key={idx}
-                      className="font-mono text-xs px-2 py-1 bg-emerald-400/10 text-emerald-400 border border-emerald-400/30"
+                      className="font-mono text-xs px-2 py-1 bg-violet-400/10 text-violet-400 border border-violet-400/30"
                     >
                       {tech}
                     </span>
@@ -84,7 +84,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 text-sm text-gray-400 hover:text-emerald-400 transition-colors"
+                      className="flex items-center gap-2 text-sm text-gray-400 hover:text-violet-400 transition-colors"
                     >
                       <Github className="w-4 h-4" />
                       Code
@@ -96,7 +96,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 text-sm text-gray-400 hover:text-emerald-400 transition-colors"
+                      className="flex items-center gap-2 text-sm text-gray-400 hover:text-violet-400 transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live
@@ -123,7 +123,7 @@ export default function Projects() {
                     {selectedProject.tech.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="font-mono text-xs px-2 py-1 bg-emerald-400/10 text-emerald-400 border border-emerald-400/30"
+                        className="font-mono text-xs px-2 py-1 bg-violet-400/10 text-violet-400 border border-violet-400/30"
                       >
                         {tech}
                       </span>
@@ -140,13 +140,13 @@ export default function Projects() {
 
               <div className="p-6 space-y-6">
                 <div>
-                  <h3 className="font-mono text-emerald-400 text-sm mb-2">OVERVIEW</h3>
+                  <h3 className="font-mono text-violet-400 text-sm mb-2">OVERVIEW</h3>
                   <p className="text-gray-300 leading-relaxed">{selectedProject.details}</p>
                 </div>
 
                 {selectedProject.images && selectedProject.images.length > 0 && (
                   <div>
-                    <h3 className="font-mono text-emerald-400 text-sm mb-4">SCREENSHOTS</h3>
+                    <h3 className="font-mono text-violet-400 text-sm mb-4">SCREENSHOTS</h3>
                     <div className="space-y-4">
                       {selectedProject.images.map((img, index) => (
                         <img
@@ -166,7 +166,7 @@ export default function Projects() {
                       href={selectedProject.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="neo-brutal flex items-center gap-2 px-6 py-3 bg-emerald-400 text-black font-medium"
+                      className="neo-brutal flex items-center gap-2 px-6 py-3 bg-lime-500 text-black font-medium"
                     >
                       <Github className="w-4 h-4" />
                       View Code

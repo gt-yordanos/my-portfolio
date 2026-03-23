@@ -165,9 +165,9 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="font-mono text-emerald-400 text-sm mb-2">$ cat about.txt</div>
+          <div className="font-mono text-violet-400 text-sm mb-2">$ cat about.txt</div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">About Me</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400" />
+          <div className="w-20 h-1 bg-gradient-to-r from-violet-400 to-lime-500" />
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
@@ -177,15 +177,15 @@ export default function About() {
             viewport={{ once: true }}
             className="neo-brutal-card glass p-6"
           >
-            <GraduationCap className="w-8 h-8 text-emerald-400 mb-4" />
+            <GraduationCap className="w-8 h-8 text-violet-400 mb-4" />
             <h3 className="text-xl font-semibold mb-3">Education</h3>
             <div className="space-y-2 text-gray-400">
               <p className="font-semibold text-white">BSc in Computer Science</p>
               <p className="text-sm">Haramaya University</p>
               <p className="text-sm">May 2022 - June 2025</p>
               <div className="flex items-center gap-2 mt-3">
-                <Award className="w-4 h-4 text-emerald-400" />
-                <span className="font-mono text-emerald-400">CGPA: 3.82/4.00</span>
+                <Award className="w-4 h-4 text-violet-400" />
+                <span className="font-mono text-violet-400">CGPA: 3.82/4.00</span>
               </div>
             </div>
           </motion.div>
@@ -197,13 +197,13 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="neo-brutal-card glass p-6"
           >
-            <Briefcase className="w-8 h-8 text-emerald-400 mb-4" />
+            <Briefcase className="w-8 h-8 text-violet-400 mb-4" />
             <h3 className="text-xl font-semibold mb-3">Current Role</h3>
             <div className="space-y-2 text-gray-400">
               <p className="font-semibold text-white">AI Training Software Engineer</p>
               <p className="text-sm">EaglePoint AI</p>
               <p className="text-sm">New York, United States (Remote)</p>
-              <p className="text-sm font-mono text-emerald-400 mt-3">Jan 2026 - Present</p>
+              <p className="text-sm font-mono text-violet-400 mt-3">Jan 2026 - Present</p>
             </div>
           </motion.div>
 
@@ -214,20 +214,20 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="neo-brutal-card glass p-6"
           >
-            <Globe className="w-8 h-8 text-emerald-400 mb-4" />
+            <Globe className="w-8 h-8 text-violet-400 mb-4" />
             <h3 className="text-xl font-semibold mb-3">Languages</h3>
             <div className="space-y-2 text-gray-400">
               <div className="flex justify-between">
                 <span>English</span>
-                <span className="text-emerald-400">Proficient</span>
+                <span className="text-violet-400">Proficient</span>
               </div>
               <div className="flex justify-between">
                 <span>Amharic</span>
-                <span className="text-emerald-400">Native</span>
+                <span className="text-violet-400">Native</span>
               </div>
               <div className="flex justify-between">
                 <span>Oromo</span>
-                <span className="text-emerald-400">Fluent</span>
+                <span className="text-violet-400">Fluent</span>
               </div>
             </div>
           </motion.div>
@@ -240,7 +240,7 @@ export default function About() {
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-8">
-            <Code2 className="w-6 h-6 text-emerald-400" />
+            <Code2 className="w-6 h-6 text-violet-400" />
             <h3 className="text-2xl font-bold">Tech Stack</h3>
           </div>
 
@@ -254,7 +254,7 @@ export default function About() {
                 transition={{ delay: idx * 0.1 }}
                 className="neo-brutal-card glass p-6"
               >
-                <h4 className="font-mono text-sm text-emerald-400 mb-4 uppercase tracking-wider">
+                <h4 className="font-mono text-sm text-violet-400 mb-4 uppercase tracking-wider">
                   {category}
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -281,7 +281,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <div className="flex items-center gap-3 mb-8">
-            <Briefcase className="w-6 h-6 text-emerald-400" />
+            <Briefcase className="w-6 h-6 text-violet-400" />
             <h3 className="text-2xl font-bold">Experience</h3>
           </div>
 
@@ -297,14 +297,14 @@ export default function About() {
               >
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                   <div className="flex-1">
-                    <h4 className="text-lg font-semibold mb-1 group-hover:text-emerald-400 transition-colors">
+                    <h4 className="text-lg font-semibold mb-1 group-hover:text-violet-400 transition-colors">
                       {title}
                     </h4>
                     <p className="text-gray-400 text-sm">{company}</p>
                   </div>
                   <div className="flex items-center gap-2">
                     {period.toLowerCase().includes('present') && (
-                      <span className="px-2.5 py-1 bg-emerald-400/10 text-emerald-400 text-xs font-mono border border-emerald-400/30">
+                      <span className="px-2.5 py-1 bg-violet-400/10 text-violet-400 text-xs font-mono border border-violet-400/30">
                         Current
                       </span>
                     )}

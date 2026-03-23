@@ -56,9 +56,9 @@ export default function Contact() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="font-mono text-emerald-400 text-sm mb-2">$ contact --info</div>
+          <div className="font-mono text-violet-400 text-sm mb-2">$ contact --info</div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">Get In Touch</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400" />
+          <div className="w-20 h-1 bg-gradient-to-r from-violet-400 to-lime-500" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
@@ -72,7 +72,7 @@ export default function Contact() {
               className="neo-brutal-card glass p-6 group"
             >
               <div className="flex items-start gap-4">
-                <div className="text-emerald-400 group-hover:scale-110 transition-transform">
+                <div className="text-violet-400 group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -82,7 +82,7 @@ export default function Contact() {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white hover:text-emerald-400 transition-colors break-words"
+                      className="text-white hover:text-violet-400 transition-colors break-words"
                     >
                       {item.value}
                     </a>

@@ -9,15 +9,33 @@ export default function Home() {
 
   useEffect(() => {
     let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
+    let isDeleting = false;
+    let loopTimeout;
+
+    const type = () => {
+      if (!isDeleting && index <= fullText.length) {
         setText(fullText.slice(0, index));
         index++;
-      } else {
-        clearInterval(timer);
+        loopTimeout = setTimeout(type, 80);
+      } else if (!isDeleting && index > fullText.length) {
+        // Wait 4 seconds before starting to delete
+        loopTimeout = setTimeout(() => {
+          isDeleting = true;
+          type();
+        }, 4000);
+      } else if (isDeleting && index > 0) {
+        setText(fullText.slice(0, index - 1));
+        index--;
+        loopTimeout = setTimeout(type, 50);
+      } else if (isDeleting && index === 0) {
+        // Wait 1 second before starting to type again
+        isDeleting = false;
+        loopTimeout = setTimeout(type, 1000);
       }
-    }, 80);
-    return () => clearInterval(timer);
+    };
+
+    type();
+    return () => clearTimeout(loopTimeout);
   }, []);
 
   return (
@@ -35,13 +53,13 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="font-mono text-emerald-400 text-sm"
+              className="font-mono text-violet-400 text-sm"
             >
               $ whoami
             </motion.div>
             
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-white from-0% via-emerald-400 via-50% to-cyan-400 to-100% bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white from-0% via-violet-300 via-50% to-violet-400 to-100% bg-clip-text text-transparent">
                 Yordanos G. Tefera
               </span>
             </h1>
@@ -61,7 +79,7 @@ export default function Home() {
             <a
               href="/YordanosTefera'sCV.pdf"
               download
-              className="neo-brutal flex items-center gap-2 px-6 py-3 bg-emerald-400 text-black font-medium"
+              className="neo-brutal flex items-center gap-2 px-6 py-3 bg-lime-500 text-black font-medium"
             >
               <Download className="w-4 h-4" />
               Resume
@@ -90,7 +108,7 @@ export default function Home() {
 
           <div className="flex items-center justify-center lg:justify-start gap-2 text-sm text-gray-500 font-mono">
             <Mail className="w-4 h-4" />
-            <a href="mailto:gt.yordanos@gmail.com" className="hover:text-emerald-400 transition-colors">
+            <a href="mailto:gt.yordanos@gmail.com" className="hover:text-violet-400 transition-colors">
               gt.yordanos@gmail.com
             </a>
           </div>
@@ -102,7 +120,7 @@ export default function Home() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="flex-shrink-0 relative"
         >
-          <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-tr from-emerald-400 to-cyan-400 p-[3px] animate-pulse">
+          <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-tr from-violet-400 to-lime-500 p-[3px] animate-pulse">
             <img
               src={myImage}
               alt="Yordanos Tefera"
@@ -119,8 +137,8 @@ export default function Home() {
           >
             <div className="neo-brutal-card flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-lime-500"></span>
               </span>
               <span className="text-sm text-white font-medium">
                 Open to work

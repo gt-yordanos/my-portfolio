@@ -27,10 +27,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 lg:px-12 xl:px-20">
         <Link to="home" smooth duration={500} className="cursor-pointer">
           <div className="flex items-center gap-2 group">
-            <Terminal className="w-5 h-5 text-emerald-400" />
+            <Terminal className="w-5 h-5 text-violet-400" />
             <span className="font-mono text-lg font-semibold">
               <span className="text-gray-400">~/</span>
-              <span className="text-white group-hover:text-emerald-400 transition-colors">yordanos</span>
+              <span className="text-white group-hover:text-violet-400 transition-colors">yordanos</span>
             </span>
           </div>
         </Link>
@@ -47,7 +47,7 @@ export default function Navbar() {
                 onSetActive={() => setActiveSection(section)}
                 className={`px-4 py-2 font-mono text-sm cursor-pointer transition-all duration-200 border-2 ${
                   activeSection === section
-                    ? "bg-emerald-400/10 text-emerald-400 border-emerald-400"
+                    ? "bg-violet-400/10 text-violet-400 border-violet-400"
                     : "text-gray-400 hover:text-white hover:bg-white/5 border-transparent"
                 }`}
               >
