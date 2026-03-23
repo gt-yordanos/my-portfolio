@@ -58,7 +58,7 @@ export default function Contact() {
         >
           <div className="font-mono text-emerald-400 text-sm mb-2">$ contact --info</div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">Get In Touch</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
@@ -69,7 +69,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="glass rounded-xl p-6 hover:bg-white/5 transition-all group"
+              className="neo-brutal-card glass p-6 group"
             >
               <div className="flex items-start gap-4">
                 <div className="text-emerald-400 group-hover:scale-110 transition-transform">

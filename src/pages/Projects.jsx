@@ -30,7 +30,7 @@ export default function Projects() {
         >
           <div className="font-mono text-emerald-400 text-sm mb-2">$ ls projects/</div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">Featured Work</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -42,7 +42,7 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               onClick={() => openModal(project)}
-              className="group glass rounded-2xl overflow-hidden hover:bg-white/5 transition-all cursor-pointer"
+              className="group neo-brutal-card glass overflow-hidden cursor-pointer"
             >
               <div className="aspect-video overflow-hidden bg-gray-800">
                 <img
@@ -65,13 +65,13 @@ export default function Projects() {
                   {project.tech.slice(0, 3).map((tech, idx) => (
                     <span
                       key={idx}
-                      className="font-mono text-xs px-2 py-1 bg-emerald-400/10 text-emerald-400 rounded"
+                      className="font-mono text-xs px-2 py-1 bg-emerald-400/10 text-emerald-400 border border-emerald-400/30"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.tech.length > 3 && (
-                    <span className="font-mono text-xs px-2 py-1 bg-white/5 text-gray-400 rounded">
+                    <span className="font-mono text-xs px-2 py-1 bg-white/5 text-gray-400 border border-white/10">
                       +{project.tech.length - 3}
                     </span>
                   )}
@@ -115,7 +115,7 @@ export default function Projects() {
           overlayClassName="modal-overlay"
         >
           {selectedProject && (
-            <div className="glass rounded-2xl max-w-4xl mx-auto max-h-[90vh] overflow-y-auto">
+            <div className="glass max-w-4xl mx-auto max-h-[90vh] overflow-y-auto border-2 border-white/20">
               <div className="sticky top-0 glass border-b border-white/10 p-6 flex justify-between items-start z-10">
                 <div>
                   <h2 className="text-2xl font-bold mb-2">{selectedProject.title}</h2>
@@ -123,7 +123,7 @@ export default function Projects() {
                     {selectedProject.tech.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="font-mono text-xs px-2 py-1 bg-emerald-400/10 text-emerald-400 rounded"
+                        className="font-mono text-xs px-2 py-1 bg-emerald-400/10 text-emerald-400 border border-emerald-400/30"
                       >
                         {tech}
                       </span>
@@ -132,7 +132,7 @@ export default function Projects() {
                 </div>
                 <button
                   onClick={closeModal}
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 transition-colors border border-white/20"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -153,7 +153,7 @@ export default function Projects() {
                           key={index}
                           src={img}
                           alt={`${selectedProject.title} screenshot ${index + 1}`}
-                          className="rounded-xl w-full"
+                          className="w-full border-2 border-white/10"
                         />
                       ))}
                     </div>
@@ -166,7 +166,7 @@ export default function Projects() {
                       href={selectedProject.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-emerald-400 text-black font-medium rounded-lg hover:bg-emerald-300 transition-all"
+                      className="neo-brutal flex items-center gap-2 px-6 py-3 bg-emerald-400 text-black font-medium"
                     >
                       <Github className="w-4 h-4" />
                       View Code
@@ -177,7 +177,7 @@ export default function Projects() {
                       href={selectedProject.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 glass rounded-lg hover:bg-white/10 transition-all"
+                      className="neo-brutal flex items-center gap-2 px-6 py-3 glass"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live Demo

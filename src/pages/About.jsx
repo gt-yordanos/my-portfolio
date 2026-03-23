@@ -167,7 +167,7 @@ export default function About() {
         >
           <div className="font-mono text-emerald-400 text-sm mb-2">$ cat about.txt</div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">About Me</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400" />
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
@@ -175,7 +175,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass rounded-2xl p-6 hover:bg-white/5 transition-all"
+            className="neo-brutal-card glass p-6"
           >
             <GraduationCap className="w-8 h-8 text-emerald-400 mb-4" />
             <h3 className="text-xl font-semibold mb-3">Education</h3>
@@ -195,7 +195,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="glass rounded-2xl p-6 hover:bg-white/5 transition-all"
+            className="neo-brutal-card glass p-6"
           >
             <Briefcase className="w-8 h-8 text-emerald-400 mb-4" />
             <h3 className="text-xl font-semibold mb-3">Current Role</h3>
@@ -212,7 +212,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="glass rounded-2xl p-6 hover:bg-white/5 transition-all"
+            className="neo-brutal-card glass p-6"
           >
             <Globe className="w-8 h-8 text-emerald-400 mb-4" />
             <h3 className="text-xl font-semibold mb-3">Languages</h3>
@@ -252,7 +252,7 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="glass rounded-xl p-6"
+                className="neo-brutal-card glass p-6"
               >
                 <h4 className="font-mono text-sm text-emerald-400 mb-4 uppercase tracking-wider">
                   {category}
@@ -261,7 +261,7 @@ export default function About() {
                   {techs.map(({ name }) => (
                     <div
                       key={name}
-                      className="group flex items-center gap-2 px-3 py-2 bg-white/5 rounded-lg hover:bg-white/10 transition-all cursor-default"
+                      className="group flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 transition-all cursor-default border border-white/10"
                     >
                       <StackIcon name={name} size={18} />
                       <span className="text-sm text-gray-300 group-hover:text-white transition-colors">
@@ -293,7 +293,7 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass rounded-2xl p-6 hover:bg-white/5 transition-all group"
+                className="neo-brutal-card glass p-6 group"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                   <div className="flex-1">
@@ -304,7 +304,7 @@ export default function About() {
                   </div>
                   <div className="flex items-center gap-2">
                     {period.toLowerCase().includes('present') && (
-                      <span className="px-2.5 py-1 bg-emerald-400/10 text-emerald-400 text-xs font-mono rounded-full">
+                      <span className="px-2.5 py-1 bg-emerald-400/10 text-emerald-400 text-xs font-mono border border-emerald-400/30">
                         Current
                       </span>
                     )}

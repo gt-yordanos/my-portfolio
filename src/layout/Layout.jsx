@@ -45,10 +45,10 @@ export default function Navbar() {
                 offset={-80}
                 duration={500}
                 onSetActive={() => setActiveSection(section)}
-                className={`px-4 py-2 rounded-lg font-mono text-sm cursor-pointer transition-all duration-200 ${
+                className={`px-4 py-2 font-mono text-sm cursor-pointer transition-all duration-200 border-2 ${
                   activeSection === section
-                    ? "bg-emerald-400/10 text-emerald-400"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                    ? "bg-emerald-400/10 text-emerald-400 border-emerald-400"
+                    : "text-gray-400 hover:text-white hover:bg-white/5 border-transparent"
                 }`}
               >
                 {section}
@@ -59,7 +59,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 rounded-lg hover:bg-white/5 transition-colors"
+          className="md:hidden p-2 hover:bg-white/5 transition-colors border border-white/20"
           aria-label="Toggle menu"
         >
           {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -83,7 +83,7 @@ export default function Navbar() {
                     offset={-80}
                     duration={500}
                     onClick={() => setMenuOpen(false)}
-                    className="block px-4 py-2 rounded-lg font-mono text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
+                    className="block px-4 py-2 font-mono text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all cursor-pointer border-b border-white/5"
                   >
                     {section}
                   </Link>

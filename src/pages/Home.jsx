@@ -61,7 +61,7 @@ export default function Home() {
             <a
               href="/YordanosTefera'sCV.pdf"
               download
-              className="flex items-center gap-2 px-6 py-3 bg-emerald-400 text-black font-medium rounded-lg hover:bg-emerald-300 transition-all"
+              className="neo-brutal flex items-center gap-2 px-6 py-3 bg-emerald-400 text-black font-medium"
             >
               <Download className="w-4 h-4" />
               Resume
@@ -71,7 +71,7 @@ export default function Home() {
               href="https://github.com/gt-yordanos"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 glass rounded-lg hover:bg-white/10 transition-all"
+              className="neo-brutal flex items-center gap-2 px-6 py-3 bg-white/5 backdrop-blur-sm hover:bg-white/10"
             >
               <Github className="w-4 h-4" />
               GitHub
@@ -81,7 +81,7 @@ export default function Home() {
               href="https://linkedin.com/in/yordanosgtefera"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 glass rounded-lg hover:bg-white/10 transition-all"
+              className="neo-brutal flex items-center gap-2 px-6 py-3 bg-white/5 backdrop-blur-sm hover:bg-white/10"
             >
               <Linkedin className="w-4 h-4" />
               LinkedIn
@@ -117,7 +117,7 @@ export default function Home() {
             transition={{ delay: 1, duration: 0.5 }}
             className="absolute -bottom-12 left-1/2 -translate-x-1/2"
           >
-            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
+            <div className="neo-brutal-card flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
