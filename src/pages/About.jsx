@@ -120,25 +120,25 @@ const skills = {
 
 const experiences = [
   {
+    title: "AI Training Software Engineer",
+    company: "EaglePoint AI, New York (Remote)",
+    period: "Jan 2026 - Present (Fulltime)",
+    description:
+      "Improved model training data reliability by 30% through debugging, optimization, and testing. Generated structured reasoning trajectories to strengthen LLM software engineering problem-solving performance.",
+  },
+  {
     title: "Fullstack Developer",
     company: "Helder Technologies, Addis Ababa",
-    period: "July 2025 - present (Fulltime)",
+    period: "July 2025 - Jan 2026 (Fulltime)",
     description:
-      "I work On full stack SaaS and ERP projects using tech stacks such as Node.JS, FastAPI, and React.JS",
+      "Improved backend database performance by 25% and reduced response latency by 10% through service optimization. Integrated frontend APIs using React TanStack Query and memoization to reduce UI lag by 15%.",
   },
   {
-    title: "Fullstack Developer",
-    company: "HUESA, Haramaya University",
-    period: "Jan 2025 - Mar 2025 (Volunteering)",
-    description:
-      "Developed a responsive and functional website using React and Firebase, reducing manual workload by 70%.",
-  },
-  {
-    title: "Software Developer & Team Lead",
+    title: "Software Developer Intern",
     company: "Kuraz Technologies, Addis Ababa",
-    period: "Jun 2024 - Sep 2024 (Internship)",
+    period: "Jun 2024 - Feb 2025 (Internship)",
     description:
-      "Delivered a project on time by engaging the team and delegating tasks according to strengths.",
+      "Led a project-phase team by delegating tasks based on individual strengths, resulting in successful delivery ahead of deadline. Supported fellow interns in understanding development tools and workflows.",
   },
 ];
 
@@ -200,10 +200,10 @@ export default function About() {
             <Briefcase className="w-8 h-8 text-emerald-400 mb-4" />
             <h3 className="text-xl font-semibold mb-3">Current Role</h3>
             <div className="space-y-2 text-gray-400">
-              <p className="font-semibold text-white">Fullstack Developer</p>
-              <p className="text-sm">Helder Technologies</p>
-              <p className="text-sm">Addis Ababa, Ethiopia</p>
-              <p className="text-sm font-mono text-emerald-400 mt-3">July 2025 - Present</p>
+              <p className="font-semibold text-white">AI Training Software Engineer</p>
+              <p className="text-sm">EaglePoint AI</p>
+              <p className="text-sm">New York, United States (Remote)</p>
+              <p className="text-sm font-mono text-emerald-400 mt-3">Jan 2026 - Present</p>
             </div>
           </motion.div>
 
@@ -293,16 +293,25 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass rounded-xl p-6 hover:bg-white/5 transition-all group"
+                className="glass rounded-2xl p-6 hover:bg-white/5 transition-all group"
               >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                  <div>
-                    <h4 className="text-lg font-semibold group-hover:text-emerald-400 transition-colors">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+                  <div className="flex-1">
+                    <h4 className="text-lg font-semibold mb-1 group-hover:text-emerald-400 transition-colors">
                       {title}
                     </h4>
                     <p className="text-gray-400 text-sm">{company}</p>
                   </div>
-                  <span className="font-mono text-sm text-emerald-400 mt-2 md:mt-0">{period}</span>
+                  <div className="flex items-center gap-2">
+                    {period.toLowerCase().includes('present') && (
+                      <span className="px-2.5 py-1 bg-emerald-400/10 text-emerald-400 text-xs font-mono rounded-full">
+                        Current
+                      </span>
+                    )}
+                    <span className="font-mono text-sm text-gray-500 whitespace-nowrap">
+                      {period}
+                    </span>
+                  </div>
                 </div>
                 <p className="text-gray-400 leading-relaxed">{description}</p>
               </motion.div>
