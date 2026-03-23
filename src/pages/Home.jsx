@@ -135,7 +135,7 @@ export default function Home() {
             transition={{ delay: 1, duration: 0.5 }}
             className="absolute -bottom-12 left-1/2 -translate-x-1/2"
           >
-            <div className="neo-brutal-card flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md">
+            <div className="neo-brutal-card flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md whitespace-nowrap">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-lime-500"></span>
