@@ -40,7 +40,8 @@ export default function App() {
   }, [isActive]);
   */
 
-  // Neural network animation
+  // Neural network animation - commented out for now
+  /*
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -125,15 +126,18 @@ export default function App() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  */
 
   return (
     <>
-      {/* Neural network canvas - AI/dev aesthetic */}
+      {/* Neural network canvas - commented out for now */}
+      {/*
       <canvas
         ref={canvasRef}
         className="fixed top-0 left-0 w-full h-full pointer-events-none"
         style={{ zIndex: 1 }}
       />
+      */}
 
       {/* Cursor spotlight effect - commented out for now */}
       {/*
